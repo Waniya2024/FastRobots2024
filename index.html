@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ECE 5160 - Fast Robot</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">ECE 5160 Fast robot</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 1">Lab 1</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 2">Lab 2</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 3">Lab 3</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 4">Lab 4</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 5</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 6</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 7</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 8</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 9</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 10</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 11</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Lab 5">Lab 12</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+    ECE-5160    <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        ECE 5160
+                        <span class="text-primary">Fast robot</span>
+                    </h1>
+                    <div class="subheading mb-5">
+                        Yi Wang · yw2586 · yw2586@cornell.edu
+                    </div>
+                    <p class="lead mb-5">Basic describtion for the course.</p>
+
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lab 1-->
+            <section class="resume-section" id="Lab 1">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 1 - Part 1 The Artemis board</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 1: Blink LED</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The basic “Blink” example is used to test the LED on the module and make sure that the code can be correctly uploaded to the board. The “Blink” code first sets the pin connected to the LED to HIGH for one second, and then sets the pin to LOW for another second. These two processes are repeated in a loop to achieve the blinking effect.</p>
+                            <div class="container">
+                                <video src="assets/img/Lab1/blink.mov" width="600" height="350" controls></video>
+                            </div>
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 2: Serial Communication</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The “Example4_Serial” code is used to test the serial communication between the computer and the Artemis board. In the following example, the Artemis board first sends a counting test to the serial monitor through UART communication. Then, it allows the user to send a string from the computer, and the Artemis board can echo whatever that was sent to the serial monitor. This showcast that serial communication is correctly set up between the computer and the Artemis module.</p>
+                            <img src="assets/img/Lab1/Serial.png" width="1000" height="333">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 3: Temperature Sensor</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “Example02_AnalogRead' code is used to test the temperature sensor on the Artemis board. The example code uses a function ‘analogReadTemp()’ to obtain the raw ADC counts from the temperature sensor and send the data to the serial monitor. To better visualize the measurements, the temperatures are computed as Fahrenheit degrees and are printed on a serial plotter.</p>
+                            
+                            <img src="assets/img/Lab1/Example02_AnalogRead.png" width="1000" height="333" vspace="20">
+                            <img src="assets/img/Lab1/Temp(F).png" width="1000" height="333" vspace="20">
+                            <iframe width="667" height="500"
+                            src="https://youtu.be/WxMS_lNJXYg">
+                            </iframe> 
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 4: Microphone Output</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “Exampel1_MicrophoneOutput” code is used to test that the pulse density microphone on the Artemis board can correctly measure the frequency of the voice in the environment. In the following video, a tone is produced that plays from low to high frequencies. It can be observed that the frequency of the environmental voice that was printed on the serial monitor gradually increases and can match with the frequency of the tone that was being played.</p>
+                            <iframe width="667" height="500"
+                            src="https://www.youtube.com/watch?v=3kqfYaGwAas">
+                            </iframe> 
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional Task: Blink with note “A”</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>A program is built based on task 4 that can turn on the LED on the Artemis board when the note “A” is being played. Firstly, the frequency of note “A” should be measured to identify a proper frequency range when the LED should be lighted. Then, set the LED pin to HIGH if the detected loudest frequency is within that range, and set the LED pin to LOW otherwise.</p>
+                            <iframe width="667" height="500"
+                            src="https://youtu.be/g2EXfBRVNAE">
+                            </iframe> 
+                            
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div> -->
+                    </div>
+                    <h2 class="mb-5">Lab 1 - Part 2 Bluetooth</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 1: ECHO command</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The ECHO command can be used to test the bluetooth communication between the host computer and the Artemis board. A class “enum” is defined that stores all the commands that are to be communicated between the computer and the Artemis board. By sending the ECHO command with a character string from the computer, the board can receive the string and echo it back to the computer.</p>
+                            <img src="assets/img/Lab1/1.png" width="200" height="233">
+                            <img src="assets/img/Lab1/2.png" width="600" height="200">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 2: Get time string</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “GET_TIME_MILLIS” command is used to return the time in milliseconds from the Artemis board. The millis() function is used to obtain the current time and is appended to a string and sent to the computer.</p>
+                            <img src="assets/img/Lab1/2.png" width="500" height="233">
+                            <img src="assets/img/Lab1/2_2.png" width="400" height="100">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 3: Notification Handler</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>A notification handler is declared to automatically collect data whenever a certain type of string characteristic is detected. ‘RX_STRING’ is the string characteristic that is being used for communication, and the notification handler can be started by “ble.start_notify(ble.uuid[‘RX_STRING’],notification_handler)'.</p>
+                            <img src="assets/img/Lab1/3.png" width="600" height="333">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 4: Data transfer rate</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>A “COLLECT_and_SEND_1s” command is declared that can collect a time stamp and transmit the time stamp to the computer within the same loop. The following code repeats the loop for one second, and the speed of the messages that are sent can be calculated by dividing the number of messages received to the time gap in between. As shown in the following figures, there are 25 messages sent over 605 milliseconds, and the size of the message string was measured to be 60 bytes. Therefore, the data rate is around 2479 bytes per second. And the effective data rate is around 41 float numbers per second.</p>
+                            <img src="assets/img/Lab1/4.png" width="600" height="383">
+                            <img src="assets/img/Lab1/4_2.png" width="600" height="450">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 5: Send time stamps</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>A global array “time_temp_array” was declared to store a maximum of twenty time stamps. And the command “SEND_TIME_DATA” is used to loop through the array and send each stored timestamps back to the host computer as a string.</p>
+                            <img src="assets/img/Lab1/5.png" width="600" height="200">
+                            <img src="assets/img/Lab1/5_2.png" width="600" height="383">
+                            <img src="assets/img/Lab1/5_3.png" width="400" height="500">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 6: Send temperature with time stamps</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>To collect temperature readings and the time when they are recorded, both the temperature and the time are stored to a global array within the same loop. The temperature readings from the Artemis board sensor can be obtained by calling the function getTempDegC().</p>
+                            <img src="assets/img/Lab1/6.png" width="550" height="383">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 7: Discussion</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The first method in Task 4 sends data to the computer each time when a timestamp is recorded. Whereas the second method in Task 5 first collects data in an array and then sends them to the computer as a package. Since the Artemis board has 384kB of RAM, the maximum number of 16-bit data it can hold is 192000 assuming that the entirety of the Artemis RAM is used to store transmission data. Therefore, the estimated time before RAM runs out is 6’24’’ if the sampling rate is 500Hz, and 32 minutes if the sampling rate is 100Hz.</p>
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional task 1: Effective data rate and overhead</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>In this task, the ECHO command is used to transmit messages with different sizes between the Artemis board and the computer. The effective data rate is 42 data per second for a 5-byte reply, and is 991 data per second for a 120-byte reply. As it can aslo be observed that the effective data rate would increase as the message size increases. This shows that short packets introduce more overhead, and larger replies can reduce overhead. </p>
+                            <img src="assets/img/Lab1/A1.png" width="500" height="600">
+                            <img src="assets/img/Lab1/A1_2.png" width="400" height="400">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional task 2: Reliability</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>Another command is designed to test the reliability of the communication established between the Artemis board and the computer when data is being transmitted at a high rate. Through this command, the Artemis board would send both the index and the time stamp, and the delay is removed from the transmission loop. As shown in the following figure there is no index missing, thus showing that the communication at high data rate is reliable.</p>
+                            <img src="assets/img/Lab1/A2.png" width="550" height="383">
+                            <img src="assets/img/Lab1/A2_2.png" width="500" height="483">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lab 2-->
+            <section class="resume-section" id="Lab 2">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 2</h2>
+                    <!-- <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">University of Colorado Boulder</h3>
+                            <div class="subheading mb-3">Bachelor of Science</div>
+                            <div>Computer Science - Web Development Track</div>
+                            <p>GPA: 3.23</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">August 2006 - May 2010</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">James Buchanan High School</h3>
+                            <div class="subheading mb-3">Technology Magnet Program</div>
+                            <p>GPA: 3.56</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">August 2002 - May 2006</span></div>
+                    </div> -->
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lab 3-->
+            <section class="resume-section" id="Lab 3">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 3</h2>
+                    <!-- <div class="subheading mb-3">Programming Languages & Tools</div>
+                    <ul class="list-inline dev-icons">
+                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
+                    </ul>
+                    <div class="subheading mb-3">Workflow</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Mobile-First, Responsive Design
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Cross Browser Testing & Debugging
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Cross Functional Teams
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Agile Development & Scrum
+                        </li>
+                    </ul> -->
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lab 4-->
+            <section class="resume-section" id="Lab 4">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 4</h2>
+                    <!-- <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p> -->
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lab 5-->
+            <section class="resume-section" id="Lab 5">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 5 </h2>
+                    <!-- <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Google Analytics Certified Developer
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Mobile Web Specialist - Google Certification
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            2
+                            <sup>nd</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - James Buchanan High School - Hackathon 2006
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            3
+                            <sup>rd</sup>
+                            Place - James Buchanan High School - Hackathon 2005
+                        </li>
+                    </ul> -->
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
