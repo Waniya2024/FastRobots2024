@@ -61,38 +61,151 @@
             <!-- Lab 1-->
             <section class="resume-section" id="Lab 1">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Lab 1</h2>
+                    <h2 class="mb-5">Lab 1 - Part 1 The Artemis board</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Senior Web Developer</h3>
-                            <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+                            <h3 class="mb-0">Task 1: Blink LED</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The basic “Blink” example is used to test the LED on the module and make sure that the code can be correctly uploaded to the board. The “Blink” code first sets the pin connected to the LED to HIGH for one second, and then sets the pin to LOW for another second. These two processes are repeated in a loop to achieve the blinking effect.</p>
+                            <div class="container">
+                                <video src="assets/img/Lab1/blink.mov" width="600" height="350" controls></video>
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div> -->
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Developer</h3>
-                            <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+                            <h3 class="mb-0">Task 2: Serial Communication</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The “Example4_Serial” code is used to test the serial communication between the computer and the Artemis board. In the following example, the Artemis board first sends a counting test to the serial monitor through UART communication. Then, it allows the user to send a string from the computer, and the Artemis board can echo whatever that was sent to the serial monitor. This showcast that serial communication is correctly set up between the computer and the Artemis module.</p>
+                            <img src="assets/img/Lab1/Serial.png" width="1000" height="333">
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Junior Web Designer</h3>
-                            <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+                            <h3 class="mb-0">Task 3: Temperature Sensor</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “Example02_AnalogRead' code is used to test the temperature sensor on the Artemis board. The example code uses a function ‘analogReadTemp()’ to obtain the raw ADC counts from the temperature sensor and send the data to the serial monitor. To better visualize the measurements, the temperatures are computed as Fahrenheit degrees and are printed on a serial plotter.</p>
+                            
+                            <img src="assets/img/Lab1/Example02_AnalogRead.png" width="1000" height="333" vspace="20">
+                            <img src="assets/img/Lab1/Temp(F).png" width="1000" height="333" vspace="20">
+                            <div class="container">
+                                <video src="assets/img/Lab1/temp.MOV" width="600" height="350" controls></video>
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Design Intern</h3>
-                            <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+                            <h3 class="mb-0">Task 4: Microphone Output</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “Exampel1_MicrophoneOutput” code is used to test that the pulse density microphone on the Artemis board can correctly measure the frequency of the voice in the environment. In the following video, a tone is produced that plays from low to high frequencies. It can be observed that the frequency of the environmental voice that was printed on the serial monitor gradually increases and can match with the frequency of the tone that was being played.</p>
+                            <div class="container">
+                                <video src="assets/img/Lab1/microphone.mov" width="600" height="350" controls></video>
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional Task: Blink with note “A”</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>A program is built based on task 4 that can turn on the LED on the Artemis board when the note “A” is being played. Firstly, the frequency of note “A” should be measured to identify a proper frequency range when the LED should be lighted. Then, set the LED pin to HIGH if the detected loudest frequency is within that range, and set the LED pin to LOW otherwise.</p>
+                            <div class="container">
+                                <video src="assets/img/Lab1/toneA.mov" width="600" height="350" controls></video>
+                            </div>
+                            
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div> -->
+                    </div>
+                    <h2 class="mb-5">Lab 1 - Part 2 Bluetooth</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 1: ECHO command</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The ECHO command can be used to test the bluetooth communication between the host computer and the Artemis board. A class “enum” is defined that stores all the commands that are to be communicated between the computer and the Artemis board. By sending the ECHO command with a character string from the computer, the board can receive the string and echo it back to the computer.</p>
+                            <img src="assets/img/Lab1/1.png" width="200" height="233">
+                            <img src="assets/img/Lab1/2.png" width="600" height="200">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 2: Get time string</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>The “GET_TIME_MILLIS” command is used to return the time in milliseconds from the Artemis board. The millis() function is used to obtain the current time and is appended to a string and sent to the computer.</p>
+                            <img src="assets/img/Lab1/2.png" width="500" height="233">
+                            <img src="assets/img/Lab1/2_2.png" width="400" height="100">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 3: Notification Handler</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>A notification handler is declared to automatically collect data whenever a certain type of string characteristic is detected. ‘RX_STRING’ is the string characteristic that is being used for communication, and the notification handler can be started by “ble.start_notify(ble.uuid[‘RX_STRING’],notification_handler)'.</p>
+                            <img src="assets/img/Lab1/3.png" width="600" height="333">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 4: Data transfer rate</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>A “COLLECT_and_SEND_1s” command is declared that can collect a time stamp and transmit the time stamp to the computer within the same loop. The following code repeats the loop for one second, and the speed of the messages that are sent can be calculated by dividing the number of messages received to the time gap in between. As shown in the following figures, there are 25 messages sent over 605 milliseconds, and the size of the message string was measured to be 60 bytes. Therefore, the data rate is around 2479 bytes per second. And the effective data rate is around 41 float numbers per second.</p>
+                            <img src="assets/img/Lab1/4.png" width="600" height="383">
+                            <img src="assets/img/Lab1/4_2.png" width="600" height="450">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 5: Send time stamps</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>A global array “time_temp_array” was declared to store a maximum of twenty time stamps. And the command “SEND_TIME_DATA” is used to loop through the array and send each stored timestamps back to the host computer as a string.</p>
+                            <img src="assets/img/Lab1/5.png" width="600" height="200">
+                            <img src="assets/img/Lab1/5_2.png" width="600" height="383">
+                            <img src="assets/img/Lab1/5_3.png" width="400" height="500">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 6: Send temperature with time stamps</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>To collect temperature readings and the time when they are recorded, both the temperature and the time are stored to a global array within the same loop. The temperature readings from the Artemis board sensor can be obtained by calling the function getTempDegC().</p>
+                            <img src="assets/img/Lab1/6.png" width="550" height="383">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task 7: Discussion</h3>
+                            <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
+                            <p>The first method in Task 4 sends data to the computer each time when a timestamp is recorded. Whereas the second method in Task 5 first collects data in an array and then sends them to the computer as a package. Since the Artemis board has 384kB of RAM, the maximum number of 16-bit data it can hold is 192000 assuming that the entirety of the Artemis RAM is used to store transmission data. Therefore, the estimated time before RAM runs out is 6’24’’ if the sampling rate is 500Hz, and 32 minutes if the sampling rate is 100Hz.</p>
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional task 1: Effective data rate and overhead</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>In this task, the ECHO command is used to transmit messages with different sizes between the Artemis board and the computer. The effective data rate is 42 data per second for a 5-byte reply, and is 991 data per second for a 120-byte reply. As it can aslo be observed that the effective data rate would increase as the message size increases. This shows that short packets introduce more overhead, and larger replies can reduce overhead. </p>
+                            <img src="assets/img/Lab1/A1.png" width="500" height="600">
+                            <img src="assets/img/Lab1/A1_2.png" width="400" height="400">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div> -->
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Additional task 2: Reliability</h3>
+                            <!-- <div class="subheading mb-3">Shout! Media Productions</div> -->
+                            <p>Another command is designed to test the reliability of the communication established between the Artemis board and the computer when data is being transmitted at a high rate. Through this command, the Artemis board would send both the index and the time stamp, and the delay is removed from the transmission loop. As shown in the following figure there is no index missing, thus showing that the communication at high data rate is reliable.</p>
+                            <img src="assets/img/Lab1/A2.png" width="550" height="383">
+                            <img src="assets/img/Lab1/A2_2.png" width="500" height="483">
+                        </div>
+                        <!-- <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div> -->
                     </div>
                 </div>
             </section>
@@ -101,7 +214,7 @@
             <section class="resume-section" id="Lab 2">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Lab 2</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <!-- <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">University of Colorado Boulder</h3>
                             <div class="subheading mb-3">Bachelor of Science</div>
@@ -117,7 +230,7 @@
                             <p>GPA: 3.56</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">August 2002 - May 2006</span></div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <hr class="m-0" />
@@ -125,7 +238,7 @@
             <section class="resume-section" id="Lab 3">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Lab 3</h2>
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
+                    <!-- <div class="subheading mb-3">Programming Languages & Tools</div>
                     <ul class="list-inline dev-icons">
                         <li class="list-inline-item"><i class="fab fa-html5"></i></li>
                         <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
@@ -158,7 +271,7 @@
                             <span class="fa-li"><i class="fas fa-check"></i></span>
                             Agile Development & Scrum
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </section>
             <hr class="m-0" />
@@ -166,16 +279,16 @@
             <section class="resume-section" id="Lab 4">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Lab 4</h2>
-                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+                    <!-- <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p> -->
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Lab 5-->
             <section class="resume-section" id="Lab 5">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Lab 5 & Certifications</h2>
-                    <ul class="fa-ul mb-0">
+                    <h2 class="mb-5">Lab 5 </h2>
+                    <!-- <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
                             Google Analytics Certified Developer
@@ -214,7 +327,7 @@
                             <sup>rd</sup>
                             Place - James Buchanan High School - Hackathon 2005
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </section>
         </div>
