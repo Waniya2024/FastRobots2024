@@ -311,8 +311,9 @@
                             <h3 class="mb-0">Record a stunt</h3>
                             <!-- <div class="subheading mb-3">Intelitec Solutions</div> -->
                             <p>The robot car can move in very high speed. The remote controller features three control buttons: one for moving forward or backward, another for turning left or right, and a third button that activates the cyclone function of the robot car.</p>
-                            
-                            <p>"https://www.youtube.com/embed/AE39E5ecdmg"</p>
+                            <iframe width="667" height="500"
+                            src=>
+                            </iframe> 
                         </div>
                         <!-- <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div> -->
                     </div>
@@ -322,41 +323,90 @@
             <!-- Lab 3-->
             <section class="resume-section" id="Lab 3">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Lab 3</h2>
-                    <!-- <div class="subheading mb-3">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-                    </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Browser Testing & Debugging
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Functional Teams
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Agile Development & Scrum
-                        </li>
-                    </ul> -->
+                    <h2 class="mb-5">Lab 3: ToF Sensors</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Objective</h3>
+                            <p>The objective of this lab is to connect two time-of-flight (ToF) sensors to the Artemis board and measure the distance using it.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Prelab</h3>
+                            <p>There are two time-of-flight (ToF) sensors that will be attached to the front and side of a robot, so that the robot can collect distance measurement data from both directions. There are various things to consider before the lab, particularly the I2C sensor address, and how to connect the two ToF sensors to the Artemis board and receive transmission from them simultaneously. The I2C address of both the VL53L1X ToF sensors are the same (0x29). Therefore, we need to manually change the address of one of the sensors during setup. Consequently, the ‘XSHUNT’ pin from one of the sensors should be connected to the Artemis GPIO pin, so that the sensor could be turned off while the address of the other ToF sensor is being programmed. A wiring diagram for the connection is shown in the figure below.</p>
+                            <img src="assets/img/Lab3/wiring.png" width="600" height="600">
+                            <p>Fig 1: Sketch of wiring diagram</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3> class="mb-0">Assembly</h3>
+                            <img src="assets/img/Lab3/assembly.jpg" width="600" height="500">
+                            <p>Fig 2: ToF sensors conencted to the QWIIC breakout board</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">I2C Address</h3>
+                            <p>By connecting the ToF sensor one at a time to the Artemis, the example code ‘Wire_I2C’ can print out the I2C address of the sensor that is connected. The I2C address output is shown in the figure below. The output I2C address is 0x29, which is the same default address for the VL53L1X sensor on power-up as described in the datasheet.</p>
+                            <img src="assets/img/Lab3/I2Cout.png" width="500" height="250">
+                            <p>Fig 3: Artemis scanning for I2C device</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Sensor data measurements using different modes</h3>
+                            <p>The ToF sensor operates in two modes: short distance mode, with a measurement range set to 1.3 meters, and long distance mode, with a measurement range set to 4 meters. The short mode theoretically offers higher accuracy for distances under 1.3 meters, while the long mode is more susceptible to sensor noise. To confirm this, multiple measurements were taken repeatedly at distances ranging from 0.1m to 2.7m. As illustrated in the figure below, the ToF sensors were taped to a box and measured the distance from the sensors to the bookshelf.</p>
+                            <img src="assets/img/Lab3/book.jpg" width="900" height="750">
+                            <p>Fig 4: Sensor data measurement</p>
+                            <p>The average measurement results are depicted in the following figures. It was observed that the ToF sensor in both short and long distance modes can accurately track the actual distance. Additionally, it was noted that the sensor exhibited higher accuracy when measuring distances between 0.7m and 1.3m in both modes.</p>
+                            <img src="assets/img/Lab3/Mode.png" width="1050" height="600">
+                            <p>Fig 5: Measurement results in different modes</p>
+                            <p>For rapidly moving robots, it's crucial that the sensor detects obstacles at longer distances and reacts promptly. Given that the long distance mode can measure up to 4 meters and was found to maintain high accuracy below 1.3 meters through experimentation, it could be more advantageous in future lab applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Two ToF Sensors</h3>
+                            <p>To receive I2C transmission from the two ToF sensors in parallel, another sensor object with class ‘SFEVL53L1X’ should be declared to differentiate the two sensors. Then we need to modify the I2C address of one of the sensors in ‘setup()’. The ‘XSHUNT’ pin from one of the ToF sensors is connected to a GPIO pin on the Artemis. It can be used to shut down the ToF sensor when changing the I2C address of another sensor using the ‘setI2CAddree()’ function. The following screenshot shows that two sensors can work in parallel.</p>
+                            <img src="assets/img/Lab3/twoToF.png" width="600" height="300">
+                            <p>Fig 6: Serial Output when two ToF working in parallel</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">ToF Sensor Speed</h3>
+                            <p>It is essential that the code can execute quickly, and should not wait until the ToF sensors return valid data. The following code was written to examine the maximum speed that the Artemis can execute and compare it with the period that the ToF sensor finishes a measurement.</p>
+                            <img src="assets/img/Lab3/speed.png" width="900" height="400">
+                            <img src="assets/img/Lab3/speed_out.png" width="600" height="800">
+                            <p>Fig 7: Sensor speed estimation code and outputs</p>
+                            <p>It was found that the Artemis takes 3 to 4 milliseconds to execute a loop, and the ToF sensor takes 56 milliseconds to finish a measurement.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Time vs. Distance</h3>
+                            <p>The distance data detected by the two ToF sensors should be transmitted via Bluetooth to the host computer for a duration of 5 seconds. This can be accomplished by implementing an additional Bluetooth command that, when invoked, records a set period of time-stamped ToF measurements into arrays in an interrupt manner. These measurements are then compiled into a string and sent through Bluetooth. The measurement results are depicted in the following figures.</p>
+                            <img src="assets/img/Lab3/ToF_Ble.png" width="400" height="400">
+                            <p>Fig 8: ToF data sent over bluetooth</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">5000-level Additional Discussion about Infrared Transmission</h3>
+                            <p>Overall there are two types of infrared sensors: active and passive. Passive infrared sensors function by detecting the infrared radiation emitted by objects around the device, while active infrared sensors emit a light which bonus off an object and returns back to the sensor. And an active infrared sensor would use that infrared light to determine the distance of the object it hits. 
+                                Passive infrared sensors consume less power and produce less noise, and they are less susceptible to interference and clutter. However, they do have drawbacks, including lower resolution and accuracy, and an inability to measure the precise distance of the target. On the other hand, active infrared sensors offer several advantages, such as functioning effectively in low-light or dark environments, providing higher resolution and accuracy, and enabling measurement of the exact distance to the target. Nonetheless, active sensors demand more power and generate more noise. The distance measuring sensors employed in this lab necessitate high accuracy in measurement and are active sensors.</p>
+                            <p>Several experiments were taken to test the sensitivity of the ToF sensors to colors and texture of the target. The targets with varying materials were placed at 30cm away from the ToF sensor. The experiment scenarios and measurement results are shown in the following figures. It was found that the ToF sensor can correctly measure the target regardless of the color. However, measuring a fur target with an unsmooth surface produced higher error than the other texture. </p>
+                            <img src="assets/img/Lab3/color_texture.png" width="1000" height="700">
+                            <p>Fig 9: ToF measurements for different color and texture</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             <hr class="m-0" />
