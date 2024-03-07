@@ -413,9 +413,80 @@
             <!-- Lab 4-->
             <section class="resume-section" id="Lab 4">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Lab 4</h2>
-                    <!-- <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p> -->
+                    <h2 class="mb-5">Lab 4: Motors and Open Loop Control</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Prelab</h3>
+                            <p>There are two motors on a car, each motor controls two wheels on the same side of the car. In order to control the motors spinning at a high speed, two output pins on a motor driver should be connected in parallel and are driven by the same input signal so that the driving current available for each motor is increased. The pins used for control on the Artemis should be able to generate analog PWM signals. In the lab, pins 4, 5, 12, and 13 were used to control the input signals (AIN and BIN) on the motor drivers DRV8833. And the output of the motor drivers were connected to the motors. An illustration of the motor connections are shown in Fig 1.<p>
+                            <img src="assets/img/Lab4/fig1.png" width="800" height="400">
+                            <p>Fig 1: Connection Diagram</p>
+                            <p>The batteries used for powering the Artemis board and the motors should be separated to prevent the noise generated from the motors to interfere with the Artemis. In this design, a 3.7V 650mAh battery is used to power up the Artemis, and a 3.7V 850mAh battery is used to power up the motor drivers. These devices should be common grounded.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Test the Motor Drivers</h3>
+                            <p>The Vin and GND pins on a motor driver should first be connected to a power supply instead of a battery for better debugging. The motor driver DRV8833 functions under 2.7V to 10.8V voltage supply. Since the battery used to drive the motor drivers produces 3.7V, this voltage level is set up for the power supply. The current compliance of the power supply was adjusted to 2A to prevent voltage drop when the motors were spinning.<p>
+                            <p>analogWrite(pin, value) takes a value between 0 and 255, and generates a PWM wave to the pin. The value determines the duty cycle of the PWM wave, and thus the spinning speed of the motor. By setting pin4 to low and writing pin5 to a PWM signal, the motor driver output could generate another PWM wave and control the motor to spin in one direction. A code snippet is shown below.</p>
+                            <img src="assets/img/Lab4/code1.png" width="700" height="100">
+                            <p>A motor driver was connected to Artemis and power supply, and an oscilloscope was used to monitor the input and output signals of the motor driver. The photo of the setup is shown in Fig 2, and the oscilloscope measurement is shown in Fig 3.</p>
+                            <img src="assets/img/Lab4/Fig2.png" width="1000" height="700">
+                            <p>Fig 2: Setp with power suppy and oscilloscope hookup</p>
+                            <img src="assets/img/Lab4/Fig3.png" width="600" height="400">
+                            <p>Fig 3: Oscilloscope measurement</p>
+                            <p>In Fig 3, the CH1 yellow signal represents the input signal (from pin 5) to the motor driver, and the CH2 blue signal represents the output signal from the motor driver. As it can be seen, by setting the value to 100 in ‘analogWrite’, a PWM signal with duty cycle less than 50% could be generated. The input signal is from Artemis and takes 3.3V logic. The output signal also has the same duty cycle but with a higher voltage level. </p>
+                            <p>Next, connect the AOUT and BOUT pins from one motor driver to a motor and run the code above. Both wheels on one side should spin in one direction. A recording of wheels spinning as expected is shown below.</p>
+                            <iframe width="667" height="500"
+                            src="https://www.youtube.com/embed/zbNu5bqneNk">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Install the Car</h3>
+                            <p>Repeat the soldering process for the other motor and motor driver. And connect the 850nAh battery to drive both motors. Fig 4 is a picture of all the components secured in the car. Run the following code snippet to test the functionality of both motors. And a recording is shown below.<p>
+                            <img src="assets/img/Lab4/fig4.png" width="800" height="500">
+                            <p>Fig 4: The robot car</p>
+                            <img src="assets/img/Lab4/code2.png" width="800" height="1500">
+                            <iframe width="667" height="500"
+                            src="https://www.youtube.com/embed/6Oc0mz9IVJg">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Lower limit PWM value discussion</h3>
+                            <p>The lower limit of the PWM value should be found to understand its range, and the PWM values to the motor driver should not be set below this threshold in future labs. After a few experiments, it was found that the lower limit lies between 24 and 26 for both motors to drive forward. The following video demonstrates when controlling the car to first move forward with value 24, and then move backward with value 26. It could be seen that the car didn’t move under 24 and could move under 26.<p>
+                            <iframe width="300" height="500"
+                            src=" https://www.youtube.com/embed/sUN2ptzzu_0">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Calibration demonstration</h3>
+                            <p>The motors may not have the same torque output even when they are controlled by the same PWM. Therefore, a calibration factor is necessary to drive the car in a straight line. As it could be observed from the previous video that the car would turn left when both motors were controlled by the same PWM waves. This means that the motor on the right spins faster. After several experiments, it was found that the car could move in a straight line when the left value is 1.07 times larger than the right value.<p>
+                            <img src="assets/img/Lab4/code3.png" width="550" height="300">
+                            <iframe width="667" height="500"
+                            src="https://www.youtube.com/embed/Czh-aEPRj0A">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">5000-level Tasks: analogWrite frequency</h3>
+                            <p>The frequency analogWrite generates is about 220Hz (as shown in Fig ). As has been tested in this lab, at this frequency, the motor speed could be controlled smoothly by changing the PWM duty cycle.The sampling rate of IMU data (in lab 2) is 139.1Hz, and the sampling rate of ToF sensors (in lab 3) is around 18Hz. Since the PWM frequency is higher than the sensor sampling rate, the motor could theoretically react fast enough based on the sensor data. Therefore, this frequency is adequately fast for these motors. There is a way to manually configure the timers so that a faster PWM signal could be generated, this could help maneuver the motors faster over more extreme conditions.<p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">5000-level Tasks: lowest PWM value discussion</h3>
+                            <p>To find the lowest PWM value to keep the robot running once it is in motion (forward and turns), a more systematic approach was attempted. The initial PWM value was set to 20, and the left motor would first be controlled to first go straight and then turn left or right. After these two motions, the blue LED on the Artemis would blink twice, and then the value would increase by two.  According to previous calibration results, the value to control the left motor was also scaled by a factor of 1.07 with respect to the right motor. The experiment is shown in the following video. When the PWM value was 42 on the right and 44 on the left, the robot could keep its motion in the straight line. When the PWM value was 44 on the left.<p>
+                            <iframe width="667" height="500"
+                            src="https://www.youtube.com/embed/Iowc6HX90XA">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </section>
             <hr class="m-0" />
