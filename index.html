@@ -493,47 +493,87 @@
             <!-- Lab 5-->
             <section class="resume-section" id="Lab 5">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Lab 5 </h2>
-                    <!-- <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Google Analytics Certified Developer
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Mobile Web Specialist - Google Certification
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2
-                            <sup>nd</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - James Buchanan High School - Hackathon 2006
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            3
-                            <sup>rd</sup>
-                            Place - James Buchanan High School - Hackathon 2005
-                        </li>
-                    </ul> -->
+                    <h2 class="mb-5">Lab 5: Linear PID control and Linear interpolation</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Prelab</h3>
+                            <p>The time stamped ToF data and motor PWM value should be sent over bluetooth so that it can help debugging during adjusting the PID controller. Furthermore, logged data from IMU were also recorded for future labs. When a command is sent over bluetooth to start the PID testing, a loop would run for 8 seconds and all data was recorded in a 2D array. The arduino code for storing data into an array is shown in Fig 1. The Artemis would first check if data from IMU and ToF sensors are ready, and call function ‘recordData()’ to store them into dataArr[][] if they are. The loop will not be stalled if data is not ready.</p>
+                            <img src="assets/img/Lab5/code1.png" width="600" height="200">
+                            <img src="assets/img/Lab5/code2.png" width="500" height="350">
+                            <p>Fig 1: Arduino code for recording sensor readings</p>
+                            <p>The Arduino and python code for sending data over bluetooth is shown in Fig 2.</p>
+                            <img src="assets/img/Lab5/fig2.png" width="1200" height="700">
+                            <p>Fig 2: Arduino and python code for sending data over bluetooth</p>    
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Range/Sampling time discussion</h3>
+                            <p>Theoretically, the ToF sensors can measure up to 4 m in the long distance mode. To measure how fast a basic loop can run and the sampling time, the following code was written (in Fig 3), and the results are shown in Fig 4. It was found that a control loop could run every 4 to 7 milliseconds, and the sensor data were recorded every 97 milliseconds. That is, the PID control frequency is around 180Hz, and the sampling frequency is around 10Hz. However, since the RAM is enough for all the data, the sensor data would be stored every time the control loop runs in the future steps. That is, the dataArr would store the same ToF data from the last measurement if the ToF sensor is not ready.</p>
+                            <img src="assets/img/Lab5/fig3.png" width="500" height="350">
+                            <p>Fig 3: Arduino code for measuring control and sample rate</p>
+                            <img src="assets/img/Lab5/fig4.png" width="300" height="750">
+                            <p>Fig 4:Control and sample time results</p>
+                            </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">PID control discussion and demonstration</h3>
+                            <p>The ToF sensors can measure up to 4000 mm, and the desired distance between the robot and the wall is 304 mm. The minimum PWM value for the robot to move is around 31, and the upper PWM limit was set to be 91. To spread the PWM value over all the possible distance, the Kp could be calculated as:</p>
+                            <img src="assets/img/Lab5/equation.png" align="center" width="350" height="30">
+                            <p>The proportional controller Kp represents how fast the robot should move based on the distance between current position and target position. The larger Kp is, the robot would move faster towards the target, and possibly create larger overshoot and oscillation. The Kp value could start testing from 0.06 and observe results. However, it was found that Kp = 0.06 is too large a value for the robot, the robot has too large an overshoot and hit the wall, after several adjustments, it was found that Kp = 0.015 yields better results.</p>
+                            <p>Next was adjusting the Kd value. The derivative controller can estimate the future trend of the distance error by comparing the current error and past error. The larger the Kd term is, the better control over damping and overshoot would be. After several iterations, it was found that when the robot was placed 1.5 meters away from the wall and used a PD controller with parameters Kp = 0.015 and Kd = 100, there was almost no damping. </p>
+                            <p style="width:1200px;">
+                                <img src="assets/img/Lab5/long.png" align="left" width="500" height="500">
+                                <iframe align="right" width="700" height="500"
+                                src="https://www.youtube.com/embed/RnZXyIG69nE">
+                                </iframe>
+                            </p>
+                            <p>Fig 5</p>
+                            <p>The integral controller Ki could help eliminate residual error by integrating all the past errors. As shown in Fig 5, there is a small steady state error between the robot and the target. After properly adjusting Ki, this error should be eliminated. After several attempts, it was found that a very small value Ki = 0.0001 is enough to eliminate this error. The PID controller code is shown in Fig 6. A demonstration of the result is shown in Fig 7 (Kp = 0.015, Ki = 0.0001, Kd = 100). </p>
+                            <img src="assets/img/Lab5/code3.png" width="800" height="900">
+                            <p>Fig 6: The PID controller code</p>
+                            <p style="width:1200px;">
+                                <img src="assets/img/Lab5/conservePID.png" align="left" width="500" height="500">
+                                <iframe align="right" width="700" height="500"
+                                src="https://www.youtube.com/embed/ERIOleg0W0w">
+                                </iframe>
+                            </p> 
+                            <p>Fig 7: Conservative PID controller</p>
+                            <p>As shown in the video above, the robot moves very slowly towards the target. A more aggressive controller using a larger Kp term was developed to increase its speed. However, the aggressive controller has larger overshoot and damping. A demonstration of the result is shown in Fig 8 (Kp = 0.03, Ki = 0.0001, Kd = 1000). </p>
+                            <p style="width:1200px;">
+                                <img src="assets/img/Lab5/aggresivePID.png" align="left" width="500" height="500">
+                                <iframe align="right" width="700" height="500"
+                                src="https://www.youtube.com/embed/w7hb6Sic2kM">
+                                </iframe>
+                            </p> 
+                            <p>Fig 7: Aggresive PID controller</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Extrapolation</h3>
+                            <p>As shown in Fig 4, the sampling rate is around 10Hz, and the PID controller in the previous sections could only use old ToF data when the sensor is not ready to return the new measurement. This means that the PWM control over the motors is limited to 10 Hz using the previous method. Another method called extrapolation is used in this section. It calculates the slope based on the last two sensor readings, and estimates the current distance based on it. A demonstration of the extrapolation method is shown in Fig 9. A slope k would first be calculated based on posD1 and posD2 and their corresponding time, and then predict the currentPos based on the slope k. The arduino code for extrapolation is shown in Fig 10, and a demonstration is shown in the following video and Fig 11. </p>
+                            <img src="assets/img/Lab5/fig9.png" width="400" height="200">
+                            <p>Fig 9: A illustration of the extrapolation method</p>
+                            <img src="assets/img/Lab5/fig10.png" width="800" height="400">
+                            <p>Fig 10: The arduino code for extrapolation</p>
+                            <p style="width:1200px;">
+                                <img src="assets/img/Lab5/extrapolation.png" align="left" width="500" height="500">
+                                <iframe align="right" width="700" height="500"
+                                src="https://www.youtube.com/embed/wO5vgIf7uEk">
+                                </iframe>
+                            </p> 
+                            <p>Fig 11: Extrapolation</p>
+                            </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">5000-Level task: Wind-up implementation and discussion</h3>
+                            <p>A wind-up protection for the integrator controller is necessary and was implemented as shown in line 268-269 in Fig6. This is because the distance error is very large at the beginning and the integral term could easily accumulate to a very large value over a very short time. This is dangerous especially when the integral value exceeds the maximum value an ‘int’ could be stored in Arduino, which is 32767. Without the wind-up protection, the robot's behavior would become random and uncontrollable within a few seconds of starting, once the integral error overflows.</p>
+                            </div>
+                    </div>
+                    
                 </div>
             </section>
         </div>
