@@ -623,8 +623,12 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">5000-Level task: Wind-up implementation and discussion</h3>
-                            <p>A wind-up protection for the integrator is needed for PID control. The integrator sums up the past error. And without wind-up protection, the error that was ‘memorized’ by the integrator would be too much and takes up a long time to eliminate even if the robot is in the right position. A demonstration of the robot with or withour windup protection is shown in Fig 9.</p>
-                            </div>
+                            <p>A wind-up protection for the integrator is needed for PID control. The integrator sums up the past error. And without wind-up protection, the error that was ‘memorized’ by the integrator would be too much and takes up a long time to eliminate even if the robot is in the right position. A demonstration of the robot with or withour windup protection is shown in Fig 9. As shown in Fig 9, with wind-up protection, the integrator could correct the robot to the right position after a few seconds. In Fig 10, it can be observed that the integrator term without wind-up would instead contest the proportional controller, which is controlling the robot in the right direction.</p>
+                            <img src="assets/img/Lab6/withWindUp.png" align="left" width="800" height="400">
+                            <p>Fig 9: Integrator with wind-up</p>
+                            <img src="assets/img/Lab6/woWindUp.png" align="left" width="800" height="400">
+                            <p>Fig 9: Integrator without wind-up</p>
+                        </div>
                     </div>
                     
                     </div>
