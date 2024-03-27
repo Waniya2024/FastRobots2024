@@ -666,9 +666,18 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Kalman Filter implementation in Artemis</h3>
-                            <p></p>
-                            <img src="assets/img/Lab7/fig1.png" width="1000" height="500">
-                            <p>Fig 1: Arduino and python code for sending data over bluetooth</p>    
+                            <p>The Kalman Filter algorithm was also combined with the PID control C code in the Artemis to achieve faster control over the robot. The Arduino code is shown in Fig4, and the corresponding PID control result is shown in Fig5. The Kalman Filter estimation can overall correctly track and predict the robot position. However, due to failing to correctly initialize the robot position variable “mu”, the first few sets of Kalman Filter estimation have a larger error.</p>
+                            <p style="width:1200px;">
+                                
+                                <img src="assets/img/Lab7/KF_altermis.png" align="left" width="600" height="400">
+                                <img src="assets/img/Lab7/KF_altermis2.png" align="right" width="600" height="1000">
+                            </p>
+                            <p>Fig 4: Arduino code for Kalman Filter implementation</p>
+                            <img src="assets/img/Lab7/Artemis_2.png" width="1000" height="400">
+                            <p>Fig 5: PID control with Kalman Filter on the robot</p>   
+                            <iframe align="left" width="400" height="400"
+                                src="https://www.youtube.com/embed/slu2zxlhs9g">
+                            </iframe> 
                         </div>
                     </div>
                   
