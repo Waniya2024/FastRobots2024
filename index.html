@@ -630,6 +630,48 @@
                             <p>Fig 9: Integrator without wind-up</p>
                         </div>
                     </div>
+                    </div>
+                    
+            </section>
+            <hr class="m-0" />
+            <section class="resume-section" id="Lab 7">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 7: Kalman Filter</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Initialize Kalman Filter Matrices</h3>
+                            <p>As described in the lecture, the steady-state speed and 90% rise time needs to be found to estimate the matrices for the Kalman Filter implementation. A unit step response was applied to the robot, controlling it to start from 0 speed and then drive in a straight line at maximum speed (as shown in Fig 1). The steady-state speed can be derived from ToF sensor measurements and the 90% rise time is the time it takes for the robot to rise from zero speed to that maximum speed. The PWM value for the maximum speed is 200, which is the maximum PWM value that the PID controller can generate. The speed in Fig 1 was calculated by a moving average function over every 7 data points.</p>
+                            <img src="assets/img/Lab7/stepPlot1s.png" width="1000" height="400">
+                            <p>Fig 1: Step Response of the Robot</p>
+                            <p>As it can be derived from Fig 1, 90% rise time is 0.845s, and maximum speed is 2.417m/s. Therefore, the drag and momentum can be derived from the following equations:</p>    
+                            <img src="assets/img/Lab7/equation1.png" align="center" width="350" height="90">
+                            <p>Accordingly, the A B, and C matrices for the Kalman Filter could be derived as:</p>
+                            <img src="assets/img/Lab7/equation2.png" align="center" width="350" height="140">
+                            <p>The sampling frequency of a ToF is around 10Hz, that is, one measurement every 100ms. In this lab, it was determined that the estimation rate of Kalman Filter to be 15ms in order to achieve fast control over the robot. Therefore, the discretized A B and C matrices could be calculated as:</p>
+                            <img src="assets/img/Lab7/equation3.png" align="center" width="300" height="90">
+                            <p>As described in class, the ToF sensor measurement noise was around 𝜎z = 20mm, and the trust in modeled position could be based on the sample period of the Kalman Filter. That is, 𝜎x = sqrt(102/dt) = 81. Therefore, the noise variables could be calculated as:</p>
+                            <img src="assets/img/Lab7/equation4.png" align="center" width="280" height="90">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Kalman Filter implementation in python</h3>
+                            <p>With the matrices and variables derived, Kalman Filter could be implemented in python code and test its functionality based on previously returned ToF sensor data. The python code for Kalman Filter implementation is shown in Fig 2, and the result is shown in Fig3. As it can be seen in Fig 3, the Kalman Filter estimation can correctly track and predict the robot position.</p>
+                            <img src="assets/img/Lab7/fig2.png" width="550" height="1000">
+                            <p>Fig 2: python code for Kalman Filter implementation</p> 
+                            <img src="assets/img/Lab7/KF2.png" width="500" height="400">
+                            <p>Fig 3: ToF sensor measurement and Kalman Filter estimation</p>   
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Kalman Filter implementation in Artemis</h3>
+                            <p></p>
+                            <img src="assets/img/Lab7/fig1.png" width="1000" height="500">
+                            <p>Fig 1: Arduino and python code for sending data over bluetooth</p>    
+                        </div>
+                    </div>
+                  
                     
                     </div>
                     
