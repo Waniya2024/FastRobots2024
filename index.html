@@ -620,7 +620,7 @@
                             <img src="assets/img/Lab6/straight_orien.png" align="left" width="500" height="600">
                             
                             <iframe width="400" height="400"
-                                src="https://www.youtube.com/embed/xQoMxXv4QAs">
+                            src="https://www.youtube.com/embed/xQoMxXv4QAs">
                             </iframe>
                             <p>Fig8: Go straight and orient</p>
                         </div>
@@ -681,10 +681,36 @@
                             <img src="assets/img/Lab7/Artemis_2.png" width="1000" height="400">
                             <p>Fig 5: PID control with Kalman Filter on the robot</p>   
                             <iframe align="left" width="400" height="400"
-                                src="https://www.youtube.com/embed/slu2zxlhs9g">
+                                <!-- src="https://www.youtube.com/embed/slu2zxlhs9g"> -->
                             </iframe> 
                         </div>
                     </div>
+                  
+                    
+                    </div>
+                    
+            </section>
+
+            <hr class="m-0" />
+            <section class="resume-section" id="Lab 8">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 8: Stunt</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Task B: Orientation Control</h3>
+                            <p>In this lab, the robot will be positioned far away from the wall and start driving towards it. The robot will turn 180 degrees and drive towards the opposite direction when the robot is less than 3 feet (914 mm) away from the wall. Both distance PID control and orientation PID control were implemented at the same time. The distance PID control takes the ToF sensor and controls the robot to drive towards the wall until it reaches 3ft, and the orientation PID control is also controlling the difference PWM value for motors on each side to sustain the robot driving in a straight line. When 3ft distance is reached, the orientation PID controller would control the robot to turn right by 180 degrees and then drive forward until it reaches the other side of the wall. The distance PID controller can set the PWM for both motors based on the ToF sensor readings, and the orientation controller can adjust the PWM difference between the motors on two sides based on the desired orientation angle.</p>
+                            <p>Figure 1 shows the Arduino code that was used to achieve the stunt. The code in line 611 to 623 would control the robot to perform the stunt for ten seconds after the corresponding command was sent through bluetooth. It would constantly change target orientation angle based on the ToF sensor reading. The function ‘PIDctrl’ in line 959 to 1001 defines the distance and orientation PID control. And the PID controller's output is sent to the function ‘ctrlPadding’ in line 915 to 932. The function ‘ctrlPadding’ could calculate the PWM value for left and right motors based on the PID controllers output and assign them to the motors.</p>
+                            <img src="assets/img/Lab8/code.png" width="1000" height="700">
+                            <p>Fig 1: Artemis code for stunt</p>
+                            <p>Figure 2 shows the recorded gyroscope, ToF readings, distance and orientation PID controller outputs, and the PWM values for left and right motors. In this stunt, the robot moved straight and then turned right for 4 times continuously. The corresponding recording is also shown below.</p>    
+                            <img src="assets/img/Lab8/fig2.png" width="1000" height="700">
+                            <p>Fig 2: Stunt sensor readings and PID controller outputs</p>
+                            <iframe width="400" height="400"
+                                src="https://www.youtube.com/embed/YZuDe3WMOPY">
+                                </iframe>
+                        </div>
+                    </div>
+                    
                   
                     
                     </div>
