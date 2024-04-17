@@ -710,11 +710,43 @@
                                 </iframe>
                         </div>
                     </div>
-                    
-                  
-                    
                     </div>
-                    
+            </section>
+
+            <hr class="m-0" />
+            <section class="resume-section" id="Lab 9">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 9: Mapping</h2>
+                    <p>In this lab, the robot was rotated at a small angular speed while collecting ToF data. The ToF sensor data and the corresponding angular position were used to map out a static room.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Control 3: Angular speed control</h3>
+                            <p>Another PID controller was created that maintains the robot to rotate at a stable angular speed by directly using the raw gyroscope value as input control. During mapping, the robot was controlled to rotate clockwise at an angular speed of 30 degrees per second. The Artemis code for angular speed PID control is shown in Figure 1. Data collected from ‘myICM.gryZ()’ denotes the current angular speed and would be compared with the target angular speed (30 degrees per second), and the difference between them was used as the error to the PID controller. Another consideration needs to be taken is that the raw data from the gyroscope is noisy and unstable. Therefore, a low pass filter should be used to process the data, otherwise there would be many outliers in the angular speed and cause the controller to oscillate based on noisy measurements. The low pass filter implementation is shown in code 672 - 673 in Figure 1 with LPF_a set as 0.7. The ToF sensor can take 8 to 9 readings every second. Therefore, the estimated degree difference between each measurement is 3.3 to 3.75.</p>
+                            <img src="assets/img/Lab9/code.png" width="600" height="650">
+                            <p>Figure 1: Artemis code for mapping</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0">Distance Reading and Merge the Plot</h3>
+                                <p>The robot was placed in each of the four marked positions in a static room (shown in Figure 2). The robot sensor readings when it’s placed in position (5, -3) are shown in Figure 3, and its corresponding motion is also demonstrated in the video below. As it can be seen that the robot is capable of rotating from 0 to 360 degrees clockwise at an angular speed of around 30 degrees per second.</p>
+                                <img src="assets/img/Lab9/fig2.png" width="500" height="380">
+                                <p>Figure 2: Photo of the room</p>
+                                <img src="assets/img/Lab9/fig3.png" width="1000" height="650">
+                                <p>Figure 3: Robot sensor readings</p>
+                                <iframe width="700" height="400"
+                                    src="https://www.youtube.com/embed/8Pq0buphIDI">
+                                </iframe>
+                                <p>The polar coordinate plots were obtained from the gyroscope yaw angle readings and the ToF distance sensor readings. And transformation matrices could be used to convert distance measurements in the polar plot into rectangular coordinates. The mappings in polar coordinates and in rectangular coordinates when mapping from each of the four positions in the room are shown in Figure 4.</p>
+                                <img src="assets/img/Lab9/fig4.png" width="600" height="1000">
+                                <p>Figure 4: Polar and rectangular plots measured in different positions</p>
+                                <img src="assets/img/Lab9/fig5.png" width="800" height="350">
+                                <p>Figure 5: Final merged plot</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
             </section>
         </div>
         <!-- Bootstrap core JS-->
