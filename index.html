@@ -748,6 +748,57 @@
                     </div>
                     </div>
             </section>
+
+            <hr class="m-0" />
+            <section class="resume-section" id="Lab 10">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Lab 10: ocalization using Bayes Filter (Simulation)</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Pre-lab</h3>
+                            <p>Localization of a robot is determining the localization of a robot based on its sensor measurements and actuator controls. There could be noise and inaccurate prediction during localization, and a Bayes Filter is a good approach to combine the robot’s actuator control and sensor measurements and produce the robot position with the highest possibility. A Bayes Filter illustration is shown in Figure 1. In the  prediction step of the Bayes Filter, it will predict a new location based on actuator control and actuator noise. And in the update step, it will update its position based on the robot sensor measurements. With this Bayes Filter, the robot can calculate its positions and the probability that the robot is indeed at that position.</p>
+                            <img src="assets/img/Lab10/Fig1.png" width="1000" height="700">
+                            <p>Fig 1: Bayes Filter Illustration</p>
+                            <p>In this lab, a python simulation is built up where the robot will localize a 12 feet by 9 feet room. The room is divided into many 1 by 1 feet cells, and the 360 degrees robot rotation is divided evenly into 18 shares. The robot position is represented as (x, y, θ). That is, the total number of cells along each axis are (12, 9, 18). And the robot can have a total of 1944 poses.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Implementation of the Bayes Filter</h3>
+                            <p>The function ‘computer_control’ can be used to calculate control information based on its previous and current position from the odometry motion model (introduced in the next section). The robot positions, x, y, and theta, and the transition between them can be illustrated in Fig 2. And their calculator steps are shown in Fig 3.</p>
+                            <img src="assets/img/Lab10/Fig2.png" width="1000" height="700">
+                            <p>Fig 2: Robot position translation and rotation</p>
+                            <img src="assets/img/Lab10/Fig3.png" width="1000" height="700">
+                            <p>Fig 3: Compute Control function</p>
+                            <p>The function ‘odom_motion_model’ (shown in Fig 4) can be used to calculate the probability of the robot based on the control results. Firstly,  calculate the robot translation values (which are the result of robot actuators control) from the ‘compute_control’ function. Secondly, compute the probability that the robot can move to this position due to this control command based on a Gaussian distribution whose mean is the robot expected motion.</p>
+                            <img src="assets/img/Lab10/Fig4.png" width="1000" height="700">
+                            <p>Fig 4: Odometry Motion Model function</p>
+                            <p>The function ‘prediction_step’ (shown in Fig 5) can predict a new location for the Bayes Filter based on actuator control and actuator noise, which can combine the previous two functions. This function can loop through all the 1944 robot states and produce the robot position state that  the robot is most likely to be after a control command. All the previous positions with a possibility that is less than 0.0001 will not be considered as the robot’s next position.</p>
+                            <img src="assets/img/Lab10/Fig5.png" width="1000" height="700">
+                            <p>Fig 5: Prediction Step function</p>
+                            <p>The function ‘sensor_model” (shown in Fig 6) can be used to compare the robot’s sensor measurements and the measurements the robot should produce based on its predicted position. This function can return a probability array of the robot distance measurements in each of the 18 rotation states.</p>
+                            <img src="assets/img/Lab10/Fig6.png" width="1000" height="700">
+                            <p>Fig 6: Sensor Model function</p>
+                            <p>The function ‘update_step()’ (shown in Fig 7) can be used to update the brief distribution. All the robot 1944 possible position states can be looped through to the first call function ‘sensor_model’ to produce a probability array. And then, update the prediction by multiplying this probability array with the predicted position calculated in the prediction step. The resulting updated probability should be normalized so that the array can give a total of 1. </p>
+                            <img src="assets/img/Lab10/Fig7.png" width="1000" height="700">
+                            <p>Fig 7: Update Step function</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Simulation Result</h3>
+                            <p>The Bayes Filter implemented in the previous section is then used in a python simulator, where a robot moves through a simulator room while rotating for 360 degrees. The resulting graph is shown in Fig 8. The green line represents the robot's actual positions and movements; the blue line represents the robot's predicted position and movements from the Bayes Filter; the red line represents the odometry readings. As shown in Fig 8, the robot's actual and predicted position can basically align with one another.</p>
+                            <img src="assets/img/Lab10/Fig8.png" width="1000" height="700">
+                            <p>Fig 8: Locolization through Bayes Filter Simulation Result</p>
+                            <iframe width="700" height="400"
+                                    src="https://www.youtube.com/embed/8Pq0buphIDI">
+                            </iframe>
+                        </div>
+                    </div>
+                    </div>
+            </section>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
